@@ -50,6 +50,7 @@ public class Trip {
         this.priceForChild = priceForChild;
         this.promotion = promotion;
         this.countOfPersons = countOfPersons;
+
         this.description = description;
     }
 

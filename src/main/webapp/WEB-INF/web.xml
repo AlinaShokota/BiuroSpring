@@ -7,7 +7,7 @@
       http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
          id="WebApp_ID" version="3.1">
 
-    <display-name>biuro</display-name>
+    <display-name>WebApp</display-name>
 
     <servlet>
         <servlet-name>mvc</servlet-name>

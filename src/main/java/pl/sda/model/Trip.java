@@ -30,14 +30,15 @@ public class Trip {
     private Date depatureDate;
     private Date returnDate;
     private int countOfDays;
-    private Type type;
+    private String type;
     private int priceForAdult;
     private int priceForChild;
     private int promotion;
     private int countOfPersons;
     private String description;
 
-    public Trip(Airport airportFrom, Airport airportTo, Hotel hotelTo, City cityTo, Date depatureDate, Date returnDate, int countOfDays, Type type, int priceForAdult, int priceForChild, int promotion, int countOfPersons, String description) {
+    public Trip(){}
+    public Trip(Airport airportFrom, Airport airportTo, Hotel hotelTo, City cityTo, Date depatureDate, Date returnDate, int countOfDays, String type, int priceForAdult, int priceForChild, int promotion, int countOfPersons, String description) {
         this.airportFrom = airportFrom;
         this.airportTo = airportTo;
         this.hotelTo = hotelTo;
@@ -50,11 +51,7 @@ public class Trip {
         this.priceForChild = priceForChild;
         this.promotion = promotion;
         this.countOfPersons = countOfPersons;
-
         this.description = description;
-    }
-
-    public Trip() {
     }
 
     public Integer getId() {
@@ -121,11 +118,11 @@ public class Trip {
         this.countOfDays = countOfDays;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 

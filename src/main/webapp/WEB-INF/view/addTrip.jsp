@@ -55,11 +55,13 @@
                     </c:forEach>
                 </select>
             </td>
+
         </tr>
         <tr>
             <td>Depature</td>
             <td>
-                <input type="date" name="depatureDate">
+                <input type="date" name="departureDate">
+
             </td>
         </tr>
         <tr>
@@ -127,7 +129,8 @@
         <td>Airport from</td>
         <td>Airport to</td>
         <td>Hotel</td>
-        <td>Depature</td>
+        <td>City</td>
+        <td>Departure</td>
         <td>Return</td>
         <td>Count of days</td>
         <td>Type</td>
@@ -139,11 +142,11 @@
     </tr>
     <c:forEach items="${requestScope.trips}" var="trip">
         <tr>
-            <td><c:out value="${trip.getAirportFrom()}"/></td>
-            <td><c:out value="${trip.getAirportTo()}"/></td>
-            <td><c:out value="${trip.getHotelTo()}"/></td>
-            <td><c:out value="${trip.getCityTo()}"/></td>
-            <td><c:out value="${trip.getDepatureDate()}"/></td>
+            <td><c:out value="${trip.getAirportFrom().getName()}"/></td>
+            <td><c:out value="${trip.getAirportTo().getName()}"/></td>
+            <td><c:out value="${trip.getHotelTo().getName()}"/></td>
+            <td><c:out value="${trip.getCityTo().getName()}"/></td>
+            <td><c:out value="${trip.getDepartureDate()}"/></td>
             <td><c:out value="${trip.getReturnDate()}"/></td>
             <td><c:out value="${trip.getCountOfDays()}"/></td>
             <td><c:out value="${trip.getType()}"/></td>

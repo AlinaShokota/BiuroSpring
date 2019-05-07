@@ -41,4 +41,9 @@ public class HotelServiceImplementation implements HotelService {
         }
         return true;
     }
+
+    @Override
+    public Hotel modifyHotel(Hotel newHotel) {
+        return hotelRepository.save(newHotel);
+    }
 }

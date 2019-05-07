@@ -11,5 +11,6 @@ public interface CountryService {
     Country findCountryByName(String name);
     List<Country> getAllCountries();
     boolean deleteCountry(Integer id);
+    Country modifyCountry(Country country);
     List<Country>findByContinent(String name);
 }

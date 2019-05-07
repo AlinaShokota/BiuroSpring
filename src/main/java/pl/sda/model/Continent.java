@@ -1,9 +1,7 @@
 package pl.sda.model;
 
-import pl.sda.model.enums.ContinentEnum;
-
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity(name ="continent")
 public class Continent {

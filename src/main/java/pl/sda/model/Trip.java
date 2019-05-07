@@ -1,9 +1,6 @@
 package pl.sda.model;
 
-import pl.sda.model.enums.Type;
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Trip {
@@ -27,8 +24,8 @@ public class Trip {
     @JoinColumn(name = "cityTo")
     private City cityTo;
 
-    private Date depatureDate;
-    private Date returnDate;
+    private String departureDate;
+    private String returnDate;
     private int countOfDays;
     private String type;
     private int priceForAdult;
@@ -38,12 +35,12 @@ public class Trip {
     private String description;
 
     public Trip(){}
-    public Trip(Airport airportFrom, Airport airportTo, Hotel hotelTo, City cityTo, Date depatureDate, Date returnDate, int countOfDays, String type, int priceForAdult, int priceForChild, int promotion, int countOfPersons, String description) {
+    public Trip(Airport airportFrom, Airport airportTo, Hotel hotelTo, City cityTo, String departureDate, String returnDate, int countOfDays, String type, int priceForAdult, int priceForChild, int promotion, int countOfPersons, String description) {
         this.airportFrom = airportFrom;
         this.airportTo = airportTo;
         this.hotelTo = hotelTo;
         this.cityTo = cityTo;
-        this.depatureDate = depatureDate;
+        this.departureDate = departureDate;
         this.returnDate = returnDate;
         this.countOfDays = countOfDays;
         this.type = type;
@@ -94,19 +91,19 @@ public class Trip {
         this.cityTo = cityTo;
     }
 
-    public Date getDepatureDate() {
-        return depatureDate;
+    public String getDepartureDate() {
+        return departureDate;
     }
 
-    public void setDepatureDate(Date depatureDate) {
-        this.depatureDate = depatureDate;
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
     }
 
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
 

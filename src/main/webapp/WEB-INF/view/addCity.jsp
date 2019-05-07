@@ -16,7 +16,7 @@
 <form:form method="POST" action="/app/saveCity">
     <table>
         <tr>
-            <td>Name</td>
+            <td>City</td>
             <td><input type="text" id ="txt" name="name" ></td>
         </tr>
         <tr>
@@ -38,13 +38,31 @@
 
 <table>
     <tr>
-        <td>Name</td>
         <td>City</td>
+        <td>Country</td>
     </tr>
     <c:forEach items="${requestScope.cities}" var="city">
         <tr>
             <td><c:out value="${city.getName()}"/></td>
             <td><c:out value="${city.getCountryId().getName()}"/></td>
+
+            <form:form method="POST" action="/app/modifyCity">
+                <input type="hidden" value="${city.getId()}" name="id">
+                <td><input type="text" name="name"></td>
+                <td>
+                    <select name="country">
+                        <c:forEach items="${requestScope.countries}" var="country">
+                            <option><c:out value="${country.getName()}"/></option>
+                        </c:forEach>
+                    </select>
+                </td>
+                <td><input type="submit" onclick="return confirm('Do you really want to modify this element?');" value="Modify" name="modify"></td>
+            </form:form>
+            <form:form method="POST" action="/app/deleteCity">
+                <input type="hidden" value="${city.getId()}" name="id">
+                <td><input type="submit" onclick="return confirm('Do you really want to delete this element?');" value="Delete" name="delete"></td>
+            </form:form>
+
         </tr>
     </c:forEach>
 </table>

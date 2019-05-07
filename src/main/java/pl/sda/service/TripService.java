@@ -10,4 +10,8 @@ public interface TripService {
     Trip getTripById(Integer id);
     List<Trip> getAllTrips();
     boolean deleteTrip(Integer id);
+    List<Trip> getNearestTrips();
+    List<Trip> getPromotionTrips();
+    List<Trip> getTripsEurope();
+
 }

@@ -38,4 +38,20 @@ public class CountryCont {
         countryService.addCountry(country);
         return "redirect:/addCountry";
     }
+    @PostMapping(value = "/deleteCountry")
+    public String delete(@RequestParam(required = false, defaultValue = "") Integer id){
+        countryService.deleteCountry(id);
+        return "redirect:/addCountry";
+    }
+
+    @PostMapping(value = "/modifyCountry")
+    public String modify(@RequestParam(required = false, defaultValue = "") Integer id,@RequestParam(required = false, defaultValue = "") String continent,
+                         @RequestParam(required = false, defaultValue = "") String name){
+        Country country=countryService.getCountryById(id);
+        Continent continent1=continentService.findContinentByName(continent);
+        country.setName(name);
+        country.setContinentId(continent1);
+        countryService.modifyCountry(country);
+        return "redirect:/addCountry";
+    }
 }

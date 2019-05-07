@@ -10,5 +10,6 @@ public interface AirportService {
     Airport getAirportByName(String name);
     List<Airport>getAllAirports();
     boolean deleteAirport(Integer id);
+    Airport modifyAirport(Airport newAirport);
 
 }

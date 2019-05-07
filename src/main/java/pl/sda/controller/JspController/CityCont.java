@@ -38,6 +38,22 @@ public class CityCont {
         cityService.addCity(city);
         return "redirect:/addCity";
     }
+    @PostMapping(value = "/deleteCity")
+    public String delete(@RequestParam(required = false, defaultValue = "") Integer id){
+        cityService.deleteCity(id);
+        return "redirect:/addCity";
+    }
+
+    @PostMapping(value = "/modifyCity")
+    public String modify(@RequestParam(required = false, defaultValue = "") Integer id,@RequestParam(required = false, defaultValue = "") String country,
+                         @RequestParam(required = false, defaultValue = "") String name){
+        City city=cityService.getcityById(id);
+        Country country1=countryService.findCountryByName(country);
+        city.setName(name);
+        city.setCountryId(country1);
+        cityService.modifyCity(city);
+        return "redirect:/addCity";
+    }
 //    @GetMapping(value = "/allCities")
 //    public String allAirports(Model model){
 //        List<City>cities=cityService.getAll();

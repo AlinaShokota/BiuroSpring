@@ -39,4 +39,23 @@ public class HotelCont {
         hotelService.addHotel(hotel);
         return "redirect:/addHotel";
     }
+
+    @PostMapping(value = "/deleteHotel")
+    public String delete(@RequestParam(required = false, defaultValue = "") Integer id){
+        hotelService.deleteHotel(id);
+        return "redirect:/addHotel";
+    }
+
+    @PostMapping(value = "/modifyHotel")
+    public String modify(@RequestParam(required = false, defaultValue = "") Integer id,@RequestParam(required = false, defaultValue = "") String city,
+                         @RequestParam(required = false, defaultValue = "") String name, @RequestParam(required = false) String standart, @RequestParam(required = false) String description){
+        Hotel hotel=hotelService.getHotelById(id);
+        City city1=cityService.findByName(city);
+        hotel.setName(name);
+        hotel.setCityId(city1);
+        hotel.setStandard(standart);
+        hotel.setDescription(description);
+        hotelService.modifyHotel(hotel);
+        return "redirect:/addHotel";
+    }
 }

@@ -46,5 +46,10 @@ public List<City> getAll() {
         return true;
     }
 
+    @Override
+    public City modifyCity(City newCity) {
+        return cityRepository.save(newCity);
+    }
+
 
 }

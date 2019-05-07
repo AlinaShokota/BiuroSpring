@@ -43,6 +43,11 @@ public class CountryServiceImplementation implements CountryService {
     }
 
     @Override
+    public Country modifyCountry(Country country) {
+        return countryRepository.save(country);
+    }
+
+    @Override
     public List<Country> findByContinent(String name) {
         return countryRepository.findByContinent(name);
     }

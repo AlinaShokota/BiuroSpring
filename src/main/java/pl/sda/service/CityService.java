@@ -10,4 +10,5 @@ public interface CityService {
     City findByName(String name);
     List<City>getAll();
     boolean deleteCity(Integer id);
+    City modifyCity(City newCity);
 }

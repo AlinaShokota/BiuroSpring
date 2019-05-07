@@ -46,7 +46,7 @@ public class TripCont {
     @PostMapping(value = "/saveTrip")
     public String submit(@RequestParam(required = false, defaultValue = "") String airportFrom, @RequestParam(required = false, defaultValue = "") String airportTo,
                          @RequestParam(required = false, defaultValue = "") String hotelTo, @RequestParam(required = false, defaultValue = "") String cityTo,
-                         @RequestParam(required = false, defaultValue = "") Date depatureDate, @RequestParam(required = false, defaultValue = "") Date returnDate,
+                         @RequestParam(required = false, defaultValue = "") String departureDate, @RequestParam(required = false, defaultValue = "") String returnDate,
                          @RequestParam(required = false, defaultValue = "") int countOfDays,@RequestParam(required = false, defaultValue = "") String type,
                          @RequestParam(required = false, defaultValue = "") int priceForAdult,@RequestParam(required = false, defaultValue = "") int priceForChild,
                          @RequestParam(required = false, defaultValue = "") int promotion, @RequestParam(required = false, defaultValue = "") int countOfPersons,
@@ -55,7 +55,7 @@ public class TripCont {
         Airport airportTo1=airportService.getAirportByName(airportTo);
         Hotel hotelTo1=hotelService.findHotelByName(hotelTo);
         City cityTo1=cityService.findByName(cityTo);
-        Trip trip=new Trip(airportFrom1,airportTo1,hotelTo1,cityTo1,depatureDate,returnDate,countOfDays,type,priceForAdult,priceForChild,promotion,countOfPersons,description);
+        Trip trip=new Trip(airportFrom1,airportTo1,hotelTo1,cityTo1,departureDate,returnDate,countOfDays,type,priceForAdult,priceForChild,promotion,countOfPersons,description);
         tripService.addTrip(trip);
         return "redirect:/addTrip";
 

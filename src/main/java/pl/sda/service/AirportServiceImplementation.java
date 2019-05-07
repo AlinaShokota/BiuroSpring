@@ -43,6 +43,10 @@ public class AirportServiceImplementation implements AirportService {
         return true;
     }
 
+    @Override
+    public Airport modifyAirport(Airport newAirport) {
+        return airportRepository.save(newAirport);
+    }
 
 
 }

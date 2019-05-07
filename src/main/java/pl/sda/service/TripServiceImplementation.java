@@ -25,7 +25,7 @@ public class TripServiceImplementation implements TripService {
 
     @Override
     public List<Trip> getAllTrips() {
-        return tripRepository.findAll();
+        return tripRepository.findAllTrips();
     }
 
     @Override
@@ -36,5 +36,20 @@ public class TripServiceImplementation implements TripService {
             e.printStackTrace();
         }
         return true;
+    }
+
+    @Override
+    public List<Trip> getNearestTrips() {
+        return tripRepository.findNearestTrips();
+    }
+
+    @Override
+    public List<Trip> getPromotionTrips() {
+        return tripRepository.findPromotionTrips();
+    }
+
+    @Override
+    public List<Trip> getTripsEurope() {
+        return tripRepository.findTripsEurope();
     }
 }

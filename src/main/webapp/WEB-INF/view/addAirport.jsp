@@ -17,7 +17,7 @@
     <table>
         <tr>
             <td>Name</td>
-            <td><input type="text" id ="txt" name="name" ></td>
+            <td><input type="text" id="txt" name="name"></td>
         </tr>
         <tr>
             <td>City</td>
@@ -45,8 +45,26 @@
         <tr>
             <td><c:out value="${airport.getName()}"/></td>
             <td><c:out value="${airport.getCityId().getName()}"/></td>
+
+            <form:form method="POST" action="/app/modifyAirport">
+                <input type="hidden" value="${airport.getId()}" name="id">
+                <td><input type="text" name="name"></td>
+                <td>
+                    <select name="city">
+                        <c:forEach items="${requestScope.cities}" var="city">
+                            <option><c:out value="${city.getName()}"/></option>
+                        </c:forEach>
+                    </select>
+                </td>
+                <td><input type="submit" onclick="return confirm('Do you really want to modify this element?');" value="Modify" name="modify"></td>
+            </form:form>
+            <form:form method="POST" action="/app/deleteAirport">
+                <input type="hidden" value="${airport.getId()}" name="id">
+                <td><input type="submit" onclick="return confirm('Do you really want to delete this element?');" value="Delete" name="delete"></td>
+            </form:form>
         </tr>
     </c:forEach>
 </table>
 </body>
+
 </html>

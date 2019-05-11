@@ -34,6 +34,8 @@ public class TripCont {
         model.addAttribute("trip", new Trip());
         List<Trip>trips=tripService.getAllTrips();
         model.addAttribute("trips",trips);
+        List<Airport>airportsFrom=airportService.getAirportsInPoland();
+        model.addAttribute("airportsFrom",airportsFrom);
         List<Airport>airports=airportService.getAllAirports();
         model.addAttribute("airports",airports);
         List<Hotel>hotels=hotelService.getAllHotels();
@@ -51,6 +53,7 @@ public class TripCont {
                          @RequestParam(required = false, defaultValue = "") int priceForAdult,@RequestParam(required = false, defaultValue = "") int priceForChild,
                          @RequestParam(required = false, defaultValue = "") int promotion, @RequestParam(required = false, defaultValue = "") int countOfPersons,
                          @RequestParam(required = false, defaultValue = "") String description) {
+        //Airport airportFrom1=airportService.getAirportByName(airportFrom);
         Airport airportFrom1=airportService.getAirportByName(airportFrom);
         Airport airportTo1=airportService.getAirportByName(airportTo);
         Hotel hotelTo1=hotelService.findHotelByName(hotelTo);

@@ -37,6 +37,11 @@ public List<City> getAll() {
 }
 
     @Override
+    public List<City> getAllInPoland() {
+        return cityRepository.findAllByCountryIdNameEquals("Poland");
+    }
+
+    @Override
     public boolean deleteCity(Integer id) {
         try {
             cityRepository.deleteById(id);

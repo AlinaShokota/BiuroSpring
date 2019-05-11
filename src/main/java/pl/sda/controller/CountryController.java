@@ -29,7 +29,37 @@ public class CountryController {
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/europe")
     public ResponseEntity<List<Country>>getEurope(){
+        List<Country>countries=countryService.findByContinent("Europe");
+        return ResponseEntity.ok(countries);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/asia")
+    public ResponseEntity<List<Country>>getAsia(){
+        List<Country>countries=countryService.findByContinent("Asia");
+        return ResponseEntity.ok(countries);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/africa")
+    public ResponseEntity<List<Country>>getAfrica(){
         List<Country>countries=countryService.findByContinent("Africa");
+        return ResponseEntity.ok(countries);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/north-america")
+    public ResponseEntity<List<Country>>getNorthAmerica(){
+        List<Country>countries=countryService.findByContinent("North America");
+        return ResponseEntity.ok(countries);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/south-america")
+    public ResponseEntity<List<Country>>getSouthAmerica(){
+        List<Country>countries=countryService.findByContinent("North America");
+        return ResponseEntity.ok(countries);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/australia")
+    public ResponseEntity<List<Country>>getAustralia(){
+        List<Country>countries=countryService.findByContinent("Australia");
         return ResponseEntity.ok(countries);
     }
 }

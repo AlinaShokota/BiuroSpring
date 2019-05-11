@@ -9,6 +9,7 @@ public interface CityService {
     City getcityById(Integer id);
     City findByName(String name);
     List<City>getAll();
+    List<City>getAllInPoland();
     boolean deleteCity(Integer id);
     City modifyCity(City newCity);
 }

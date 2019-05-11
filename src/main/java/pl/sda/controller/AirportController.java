@@ -37,5 +37,11 @@ public class AirportController {
         List<Airport> airports = airportService.getAllAirports();
         return ResponseEntity.ok(airports);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/airports-in-Poland")
+    public ResponseEntity<List<Airport>> getAirportsInPoland(){
+        List<Airport> airports = airportService.getAirportsInPoland();
+        return ResponseEntity.ok(airports);
+    }
 
 }

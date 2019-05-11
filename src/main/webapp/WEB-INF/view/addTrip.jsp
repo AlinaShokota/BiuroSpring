@@ -20,7 +20,7 @@
             <td>Airport from</td>
             <td>
                 <select name="airportFrom">
-                    <c:forEach items="${requestScope.airports}" var="airport">
+                    <c:forEach items="${requestScope.airportsFrom}" var="airport">
                         <option><c:out value="${airport.getName()}"/></option>
                     </c:forEach>
                 </select>

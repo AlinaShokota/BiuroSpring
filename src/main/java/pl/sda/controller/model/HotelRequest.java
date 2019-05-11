@@ -10,6 +10,16 @@ public class HotelRequest {
     private String description;
     private String cityName;
 
+    public HotelRequest(String name, String standard, String description, String cityName) {
+        this.name = name;
+        this.standard = standard;
+        this.description = description;
+        this.cityName = cityName;
+    }
+
+    public HotelRequest() {
+    }
+
     public Long getId() {
         return id;
     }

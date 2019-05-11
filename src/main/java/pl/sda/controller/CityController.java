@@ -34,4 +34,10 @@ public class CityController {
         List<City> cities = cityService.getAll();
         return ResponseEntity.ok(cities);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/in-Poland")
+    public ResponseEntity<List<City>> getAllInPoland(){
+        List<City> cities = cityService.getAllInPoland();
+        return ResponseEntity.ok(cities);
+    }
 }

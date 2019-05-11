@@ -30,7 +30,12 @@ public class AirportServiceImplementation implements AirportService {
 
     @Override
     public List<Airport> getAllAirports() {
-        return airportRepository.findAll();
+        return airportRepository.findAllOrderByName();
+    }
+
+    @Override
+    public List<Airport> getAirportsInPoland() {
+        return airportRepository.findAirportsInPoland();
     }
 
     @Override

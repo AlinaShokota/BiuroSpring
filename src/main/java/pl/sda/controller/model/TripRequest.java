@@ -1,41 +1,26 @@
-package pl.sda.model;
+package pl.sda.controller.model;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-public class Trip {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TripRequest {
+    @JsonProperty
     private Integer id;
-
-    @ManyToOne
-    @JoinColumn(name = "airportFrom")
-    private Airport airportFrom;
-
-    @ManyToOne
-    @JoinColumn(name = "airportTo")
-    private Airport airportTo;
-
-    @ManyToOne
-    @JoinColumn(name = "hotelTo")
-    private Hotel hotelTo;
-
-    @ManyToOne
-    @JoinColumn(name = "cityTo")
-    private City cityTo;
-
+    private Integer airportFrom;
+    private Integer airportTo;
+    private Integer hotelTo;
+    private Integer cityTo;
     private String departureDate;
     private String returnDate;
-    private int countOfDays;
+    private Integer countOfDays;
     private String type;
-    private int priceForAdult;
-    private int priceForChild;
-    private int promotion;
-    private int countOfPersons;
+    private Integer priceForAdult;
+    private Integer priceForChild;
+    private Integer promotion;
+    private Integer countOfPersons;
     private String description;
 
-    public Trip(){}
-    public Trip(Airport airportFrom, Airport airportTo, Hotel hotelTo, City cityTo, String departureDate, String returnDate, int countOfDays, String type, int priceForAdult, int priceForChild, int promotion, int countOfPersons, String description) {
+    public TripRequest(Integer id, Integer airportFrom, Integer airportTo, Integer hotelTo, Integer cityTo, String departureDate, String returnDate, Integer countOfDays, String type, Integer priceForAdult, Integer priceForChild, Integer promotion, Integer countOfPersons, String description) {
+        this.id = id;
         this.airportFrom = airportFrom;
         this.airportTo = airportTo;
         this.hotelTo = hotelTo;
@@ -51,6 +36,8 @@ public class Trip {
         this.description = description;
     }
 
+    public TripRequest() {
+    }
 
     public Integer getId() {
         return id;
@@ -60,35 +47,35 @@ public class Trip {
         this.id = id;
     }
 
-    public Airport getAirportFrom() {
+    public Integer getAirportFrom() {
         return airportFrom;
     }
 
-    public void setAirportFrom(Airport airportFrom) {
+    public void setAirportFrom(Integer airportFrom) {
         this.airportFrom = airportFrom;
     }
 
-    public Airport getAirportTo() {
+    public Integer getAirportTo() {
         return airportTo;
     }
 
-    public void setAirportTo(Airport airportTo) {
+    public void setAirportTo(Integer airportTo) {
         this.airportTo = airportTo;
     }
 
-    public Hotel getHotelTo() {
+    public Integer getHotelTo() {
         return hotelTo;
     }
 
-    public void setHotelTo(Hotel hotelTo) {
+    public void setHotelTo(Integer hotelTo) {
         this.hotelTo = hotelTo;
     }
 
-    public City getCityTo() {
+    public Integer getCityTo() {
         return cityTo;
     }
 
-    public void setCityTo(City cityTo) {
+    public void setCityTo(Integer cityTo) {
         this.cityTo = cityTo;
     }
 
@@ -108,11 +95,11 @@ public class Trip {
         this.returnDate = returnDate;
     }
 
-    public int getCountOfDays() {
+    public Integer getCountOfDays() {
         return countOfDays;
     }
 
-    public void setCountOfDays(int countOfDays) {
+    public void setCountOfDays(Integer countOfDays) {
         this.countOfDays = countOfDays;
     }
 
@@ -124,35 +111,35 @@ public class Trip {
         this.type = type;
     }
 
-    public int getPriceForAdult() {
+    public Integer getPriceForAdult() {
         return priceForAdult;
     }
 
-    public void setPriceForAdult(int priceForAdult) {
+    public void setPriceForAdult(Integer priceForAdult) {
         this.priceForAdult = priceForAdult;
     }
 
-    public int getPriceForChild() {
+    public Integer getPriceForChild() {
         return priceForChild;
     }
 
-    public void setPriceForChild(int priceForChild) {
+    public void setPriceForChild(Integer priceForChild) {
         this.priceForChild = priceForChild;
     }
 
-    public int getPromotion() {
+    public Integer getPromotion() {
         return promotion;
     }
 
-    public void setPromotion(int promotion) {
+    public void setPromotion(Integer promotion) {
         this.promotion = promotion;
     }
 
-    public int getCountOfPersons() {
+    public Integer getCountOfPersons() {
         return countOfPersons;
     }
 
-    public void setCountOfPersons(int countOfPersons) {
+    public void setCountOfPersons(Integer countOfPersons) {
         this.countOfPersons = countOfPersons;
     }
 
@@ -163,6 +150,4 @@ public class Trip {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 }

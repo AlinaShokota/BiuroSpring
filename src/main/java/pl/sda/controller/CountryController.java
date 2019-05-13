@@ -3,7 +3,10 @@ package pl.sda.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.sda.controller.model.HotelRequest;
+import pl.sda.model.City;
 import pl.sda.model.Country;
+import pl.sda.model.Hotel;
 import pl.sda.service.ContinentService;
 import pl.sda.service.CountryService;
 
@@ -62,4 +65,11 @@ public class CountryController {
         List<Country>countries=countryService.findByContinent("Australia");
         return ResponseEntity.ok(countries);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/countries")
+    public void save(@RequestBody String name){
+        List<Country> countries = countryService.findByContinent(name);
+    }
+
+
 }

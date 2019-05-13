@@ -16,4 +16,6 @@ public interface AirportRepository extends JpaRepository<Airport, Integer> {
 
     @Query("select airport from pl.sda.model.Airport airport where airport.cityId in(select city.id from pl.sda.model.City city where city.countryId in(select country.id from pl.sda.model.Country country where country.name='Poland')) order by  airport.name")
     List<Airport>findAirportsInPoland();
+    @Query("select airport from pl.sda.model.Airport airport where airport.cityId not in(select city.id from pl.sda.model.City city where city.countryId in(select country.id from pl.sda.model.Country country where country.name='Poland')) order by  airport.name")
+    List<Airport>findAirportsNotInPoland();
 }

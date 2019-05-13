@@ -31,18 +31,25 @@ public class HotelController {
         return ResponseEntity.ok(hotels);
     }
     @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/feedback")
-    public void sendFeedback(@RequestBody HotelRequest hotelRequest, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            try {
-                throw new ValidationException("Feedback had errors");
-            } catch (ValidationException e) {
-                e.printStackTrace();
-            }
-        }
-        City city=cityService.findByName(hotelRequest.getCityName());
-        Hotel hotel=new Hotel(hotelRequest.getName(),hotelRequest.getStandard(), hotelRequest.getDescription(), city);
-        this.hotelService.addHotel(hotel);
+    @PostMapping("/save")
+    public void save(@RequestBody HotelRequest hotel){
+        City city=cityService.getcityById(hotel.getCityId());
+        Hotel hotel1=new Hotel(hotel.getName(),hotel.getStandard(),hotel.getDescription(),city);
+        hotel1.setId(hotel.getId());
+        hotelService.addHotel(hotel1);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/getHotel")
+    public ResponseEntity<Hotel> getHotel(@RequestParam Integer id){
+        Hotel hotel=hotelService.getHotelById(id);
+        return ResponseEntity.ok(hotel);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/allByCityId")
+    public ResponseEntity<List<Hotel>> getAllByCityId(@RequestParam Integer id){
+        List<Hotel> hotels = hotelService.getByCityId(id);
+        return ResponseEntity.ok(hotels);
+    }
+
 
 }

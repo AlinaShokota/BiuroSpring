@@ -22,8 +22,11 @@ public interface TripRepository extends JpaRepository<Trip,Integer> {
     List<Trip>findPromotionTrips();
 
     //@Query("select trip from pl.sda.model.Trip trip where trip.cityTo in(select city.id from pl.sda.model.City city where city.name='Paris')")
-    @Query("select trip from pl.sda.model.Trip trip where trip.cityTo in(select city.id from pl.sda.model.City city where city.countryId in(select country.id from pl.sda.model.Country country where country.continentId=(select continent.id from pl.sda.model.Continent continent where continent.continentName='Asia')))")
-    List<Trip>findTripsEurope();
+    @Query("select trip from pl.sda.model.Trip trip where trip.cityTo in(select city.id from pl.sda.model.City city where city.countryId in(select country.id from pl.sda.model.Country country where country.continentId=(select continent.id from pl.sda.model.Continent continent where continent.continentName=:continentName)))")
+    List<Trip>findTripsByContinent(@Param("continentName") String continent);
+
+    @Query("select trip from pl.sda.model.Trip trip where trip.cityTo in(select city.id from pl.sda.model.City city where city.countryId in(select country.id from pl.sda.model.Country country where country.continentId=(select continent.id from pl.sda.model.Continent continent where continent.continentName=:continentName)))")
+    List<Trip>findTripsByContinent2(@Param("continentName") String continentName);
 
 
 }

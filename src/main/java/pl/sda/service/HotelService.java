@@ -11,6 +11,7 @@ public interface HotelService {
     Hotel getHotelById(Integer id);
     Hotel findHotelByName(String name);
     List<Hotel> getAllHotels();
+    List<Hotel> getByCityId(Integer id);
     boolean deleteHotel(Integer id);
     Hotel modifyHotel(Hotel newHotel);
 }

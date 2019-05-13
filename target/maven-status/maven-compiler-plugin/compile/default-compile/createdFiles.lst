@@ -9,15 +9,20 @@ pl\sda\repository\CityRepository.class
 pl\sda\model\enums\Type.class
 pl\sda\service\TripServiceImplementation.class
 pl\sda\controller\TripController.class
+pl\sda\controller\model\ImageRequest.class
 pl\sda\model\Hotel.class
+pl\sda\repository\ImageRepository.class
 pl\sda\service\CountryService.class
 pl\sda\controller\AirportController.class
+pl\sda\service\ImageService.class
 pl\sda\controller\JspController\HotelCont.class
 pl\sda\repository\TripRepository.class
 pl\sda\controller\CityController.class
+pl\sda\controller\model\TripRequest.class
 pl\sda\controller\PurchasedTripController.class
 pl\sda\controller\JspController\TripCont.class
 pl\sda\controller\JspController\IndexPage.class
+pl\sda\model\Image.class
 pl\sda\controller\model\HotelRequest.class
 pl\sda\service\HotelService.class
 pl\sda\service\CityServiceImplementation.class
@@ -35,6 +40,7 @@ pl\sda\controller\model\AirportRequest.class
 pl\sda\controller\JspController\AirportCont.class
 pl\sda\configuration\JpaConfiguration.class
 pl\sda\repository\CountryRepository.class
+pl\sda\controller\ImageController.class
 pl\sda\repository\PurchasedTripRepository.class
 pl\sda\service\CityService.class
 pl\sda\model\enums\ContinentEnum.class
@@ -44,5 +50,6 @@ pl\sda\service\HotelServiceImplementation.class
 pl\sda\controller\model\CityRequest.class
 pl\sda\service\AirportService.class
 pl\sda\model\PurchasedTrip.class
+pl\sda\service\ImageServiceImplementation.class
 pl\sda\service\PurchasedTripService.class
 pl\sda\configuration\WebConfig.class

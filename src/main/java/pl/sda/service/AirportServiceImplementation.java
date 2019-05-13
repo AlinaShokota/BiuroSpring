@@ -39,6 +39,11 @@ public class AirportServiceImplementation implements AirportService {
     }
 
     @Override
+    public List<Airport> getAirportsNotInPoland() {
+        return airportRepository.findAirportsNotInPoland();
+    }
+
+    @Override
     public boolean deleteAirport(Integer id) {
         try {
             airportRepository.deleteById(id);

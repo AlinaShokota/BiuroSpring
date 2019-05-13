@@ -9,9 +9,9 @@ public interface TripService {
     Trip addTrip(Trip trip);
     Trip getTripById(Integer id);
     List<Trip> getAllTrips();
+    List<Trip> getTripsByContinent(String name);
     boolean deleteTrip(Integer id);
     List<Trip> getNearestTrips();
     List<Trip> getPromotionTrips();
-    List<Trip> getTripsEurope();
 
 }

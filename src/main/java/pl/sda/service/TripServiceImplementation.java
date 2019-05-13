@@ -29,6 +29,11 @@ public class TripServiceImplementation implements TripService {
     }
 
     @Override
+    public List<Trip> getTripsByContinent(String name) {
+        return tripRepository.findTripsByContinent2(name);
+    }
+
+    @Override
     public boolean deleteTrip(Integer id) {
         try {
             tripRepository.deleteById(id);
@@ -48,8 +53,5 @@ public class TripServiceImplementation implements TripService {
         return tripRepository.findPromotionTrips();
     }
 
-    @Override
-    public List<Trip> getTripsEurope() {
-        return tripRepository.findTripsEurope();
-    }
+
 }

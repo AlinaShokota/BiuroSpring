@@ -4,27 +4,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class HotelRequest {
     @JsonProperty
-    private Long id;
+    private Integer id;
     private String name;
     private String standard;
     private String description;
-    private String cityName;
+    private Integer cityId;
 
-    public HotelRequest(String name, String standard, String description, String cityName) {
+    public HotelRequest(String name, String standard, String description, Integer cityId) {
         this.name = name;
         this.standard = standard;
         this.description = description;
-        this.cityName = cityName;
+        this.cityId = cityId;
     }
 
     public HotelRequest() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -52,11 +52,11 @@ public class HotelRequest {
         this.description = description;
     }
 
-    public String getCityName() {
-        return cityName;
+    public Integer getCityId() {
+        return cityId;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 }

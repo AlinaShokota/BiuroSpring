@@ -10,6 +10,7 @@ public interface AirportService {
     Airport getAirportByName(String name);
     List<Airport>getAllAirports();
     List<Airport>getAirportsInPoland();
+    List<Airport>getAirportsNotInPoland();
     boolean deleteAirport(Integer id);
     Airport modifyAirport(Airport newAirport);
 

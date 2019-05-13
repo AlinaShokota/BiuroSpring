@@ -33,6 +33,11 @@ public class HotelServiceImplementation implements HotelService {
     }
 
     @Override
+    public List<Hotel> getByCityId(Integer id) {
+        return hotelRepository.findByCityId(id);
+    }
+
+    @Override
     public boolean deleteHotel(Integer id) {
         try {
             hotelRepository.deleteById(id);

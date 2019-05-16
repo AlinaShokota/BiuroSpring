@@ -24,13 +24,15 @@ public class AirportController {
     @Autowired
     private CityService cityService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/save")
-    public ResponseEntity<Airport> save(@RequestBody AirportRequest airportRequest) {
-        City city = cityService.findByName(airportRequest.getCityName());
+    public void save(@RequestBody AirportRequest airportRequest) {
+        City city=cityService.getcityById(airportRequest.getCityId());
         Airport airport = new Airport(airportRequest.getName(), city);
+        airport.setId(airportRequest.getId());
         airportService.addAirport(airport);
-        return ResponseEntity.ok(airport);
     }
+
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/all")
     public ResponseEntity<List<Airport>> getAll(){
@@ -48,6 +50,18 @@ public class AirportController {
     public ResponseEntity<List<Airport>> getAirportsNotInPoland(){
         List<Airport> airports = airportService.getAirportsNotInPoland();
         return ResponseEntity.ok(airports);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/delete")
+    public void save(@RequestBody Integer id){
+        airportService.deleteAirport(id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/getAirport")
+    public ResponseEntity<Airport> getAirport(@RequestParam Integer id){
+        Airport airport=airportService.getAirportById(id);
+        return ResponseEntity.ok(airport);
     }
 
 }

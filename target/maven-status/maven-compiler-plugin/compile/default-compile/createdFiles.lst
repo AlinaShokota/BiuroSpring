@@ -47,6 +47,7 @@ pl\sda\model\enums\ContinentEnum.class
 pl\sda\service\AirportServiceImplementation.class
 pl\sda\controller\ContinentController.class
 pl\sda\service\HotelServiceImplementation.class
+pl\sda\controller\model\CountryRequest.class
 pl\sda\controller\model\CityRequest.class
 pl\sda\service\AirportService.class
 pl\sda\model\PurchasedTrip.class

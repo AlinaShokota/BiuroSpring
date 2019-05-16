@@ -50,6 +50,11 @@ public class HotelController {
         List<Hotel> hotels = hotelService.getByCityId(id);
         return ResponseEntity.ok(hotels);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/delete")
+    public void delete(@RequestBody Integer id){
+        hotelService.deleteHotel(id);
+    }
 
 
 }

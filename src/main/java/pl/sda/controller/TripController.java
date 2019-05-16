@@ -81,4 +81,36 @@ public class TripController {
         List<Trip> trips = tripService.getTripsByContinent(continentName);
         return ResponseEntity.ok(trips);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/findByCountry")
+    public ResponseEntity<List<Trip>> getTripsByCity(@RequestParam String name) {
+        List<Trip> trips = tripService.getTripsByCountry(name);
+        return ResponseEntity.ok(trips);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/findByCountOfDays")
+    public ResponseEntity<List<Trip>> getTripsByCountOfDays(@RequestParam Integer countOfDays) {
+        List<Trip> trips = tripService.getTripsByCountOfDays(countOfDays);
+        return ResponseEntity.ok(trips);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/findByAirportFromCity")
+    public ResponseEntity<List<Trip>> getTripsByAirportFromCity(@RequestParam String name) {
+        List<Trip> trips = tripService.getTripsByAirportFrom(name);
+        return ResponseEntity.ok(trips);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/findByAirportToCity")
+    public ResponseEntity<List<Trip>> getTripsByAirportToCity(@RequestParam String name) {
+        List<Trip> trips = tripService.getTripsByAirportTo(name);
+        return ResponseEntity.ok(trips);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/findByDepartureDate")
+    public ResponseEntity<List<Trip>> getTripsByDepartureDate(@RequestParam String departureDate) {
+        List<Trip> trips = tripService.getTripsByDepartureDate(departureDate);
+        return ResponseEntity.ok(trips);
+    }
+
 }

@@ -34,10 +34,34 @@ public class TripServiceImplementation implements TripService {
     }
 
     @Override
+    public List<Trip> getTripsByCountry(String name) {
+        return tripRepository.findTripsByCountry(name);
+    }
+
+    @Override
+    public List<Trip> getTripsByCountOfDays(Integer countOfDays) {
+        return tripRepository.findTripsByCountOfDays(countOfDays);
+    }
+
+    @Override
+    public List<Trip> getTripsByAirportFrom(String name) {
+        return tripRepository.findTripsByAirportFrom(name);
+    }
+    @Override
+    public List<Trip> getTripsByAirportTo(String name) {
+        return tripRepository.findTripsByAirportTo(name);
+    }
+
+    @Override
+    public List<Trip> getTripsByDepartureDate(String departureDate) {
+        return tripRepository.findTripsByDepartureDate(departureDate);
+    }
+
+    @Override
     public boolean deleteTrip(Integer id) {
         try {
             tripRepository.deleteById(id);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return true;

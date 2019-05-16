@@ -2,11 +2,12 @@ package pl.sda.controller.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CityRequest {
+public class CountryRequest {
     @JsonProperty
     private Integer id;
     private String name;
-    private Integer countryId;
+    private String imageUrl;
+    private Integer continentId;
 
     public Integer getId() {
         return id;
@@ -24,11 +25,19 @@ public class CityRequest {
         this.name = name;
     }
 
-    public Integer getCountryId() {
-        return countryId;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setCountryId(Integer countryId) {
-        this.countryId = countryId;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Integer getContinentId() {
+        return continentId;
+    }
+
+    public void setContinentId(Integer continentId) {
+        this.continentId = continentId;
     }
 }

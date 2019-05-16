@@ -21,13 +21,16 @@ public class CityController {
     @Autowired
     CountryService countryService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/save")
-    public ResponseEntity<City> save(@RequestBody CityRequest cityRequest) {
-        Country country=countryService.findCountryByName(cityRequest.getName());
+    public void save(@RequestBody CityRequest cityRequest) {
+        Country country=countryService.getCountryById(cityRequest.getCountryId());
         City city=new City(cityRequest.getName(),country);
+        city.setId(cityRequest.getId());
         cityService.addCity(city);
-        return ResponseEntity.ok(city);
     }
+
+
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/all")
     public ResponseEntity<List<City>> getAll(){
@@ -39,5 +42,16 @@ public class CityController {
     public ResponseEntity<List<City>> getAllInPoland(){
         List<City> cities = cityService.getAllInPoland();
         return ResponseEntity.ok(cities);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/delete")
+    public void save(@RequestBody Integer id){
+        cityService.deleteCity(id);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/getCity")
+    public ResponseEntity<City> getCity(@RequestParam Integer id){
+        City city=cityService.getcityById(id);
+        return ResponseEntity.ok(city);
     }
 }

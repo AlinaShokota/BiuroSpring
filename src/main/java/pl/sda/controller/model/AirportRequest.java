@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AirportRequest {
     @JsonProperty
-    private Long id;
+    private Integer id;
     private String name;
-    private String cityName;
+    private Integer cityId;
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -25,11 +25,11 @@ public class AirportRequest {
         this.name = name;
     }
 
-    public String getCityName() {
-        return cityName;
+    public Integer getCityId() {
+        return cityId;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 }
